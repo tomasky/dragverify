@@ -1,8 +1,5 @@
-/// <reference path="../typings/globals/mocha/index.d.ts" />
 
-/// <reference path="../typings/modules/chai/index.d.ts" />
-
-import Greeter from "../src/index";
+import Greeter from "../index";
 import chai = require('chai');
 
 /**
@@ -29,7 +26,7 @@ describe('User Model Unit Tests:', () => {
     });
 });
 
-describe('typescript-node', function () {
+describe('Greeter-test', function () {
   var subject : Greeter;
 
     beforeEach(function () {
@@ -37,6 +34,7 @@ describe('typescript-node', function () {
     });
   it('should execute', function () {
      var ret =  subject.greet("wooz");
-      ret == "2Hello wooz";
+       
+       expect(ret).to.equals("Hello wooz");
   })
 })

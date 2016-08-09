@@ -1,4 +1,5 @@
-///<reference path='../typings/globals/node/index.d.ts'/>
+import chai = require('chai');
+
 import fs = require("fs");
 declare module example {
 	interface IGreeterService {

@@ -16,7 +16,7 @@ $ typings install
 ```
 - compile  ts file in the src dir
 ```
-$ npm run tsc
+$ tsc
 ```
 
 - unit test  
