@@ -1,5 +1,3 @@
-import chai = require('chai');
-
 import fs = require("fs");
 declare module example {
 	interface IGreeterService {

@@ -1,8 +1,8 @@
 ### about 
-- This is first typescript build template
-- adaper typescript version 1.x
-- build with npm and typings
-- dependencies: typescript , typings,mocha,chai
+- This is a typescript build template
+- supported typescript 1.x
+- build with npm ,tsc and typings
+- dependencies: typescript , typings,mocha,chai etc
 
 ### usage
 - Install
@@ -14,12 +14,12 @@ $ npm link typescript
 $ npm install
 $ typings install
 ```
-- compile  ts file in the src dir
+- Compile
 ```
 $ tsc
 ```
 
-- unit test  
+- Unit test  
 ```
 $ npm test
 ```

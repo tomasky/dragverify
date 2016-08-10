@@ -7,7 +7,6 @@
     "stool": "dist/bin/tool.js"
   },
   "directories": {
-    "test": "test"
   },
   "dependencies": {
     "chai": "^3.5.0",
