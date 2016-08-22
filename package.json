@@ -1,13 +1,12 @@
 {
   "name": "typescriptest",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "some typescript build exp",
   "main": "dist/index.js",
   "bin": {
     "stool": "dist/bin/tool.js"
   },
-  "directories": {
-  },
+  "directories": {},
   "dependencies": {
     "chai": "^3.5.0",
     "typescript": "^1.8.10",
@@ -18,7 +17,9 @@
     "mocha": "^3.0.1"
   },
   "scripts": {
-    "test": "tsc && mocha dist/test"
+    "start":"ts-node src/bin/tool.ts"
+   ,"pretest":"tsc typings/index.d.ts src/test/*.ts --outDir dist"
+   , "test": " mocha dist/test"
   },
   "keywords": [
     "typescript",

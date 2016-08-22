@@ -21,4 +21,8 @@ interface Args extends Argv {
   _: string[]
   emitter: Emitter
 }
-console.log("some tool")
+/*
+ * 
+ */
+let s = 3
+console.log("some tool"+s)

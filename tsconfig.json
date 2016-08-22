@@ -1,24 +1,23 @@
 {
-   "filesGlob" :[
-       "src/**/*.ts"
-   ] ,
-    "files": [
-       "typings/index.d.ts"
-       ,"src/index.ts"
+    "filesGlob": [
+        "src/**/*.ts"
     ],
-
+    "files": [
+        "typings/index.d.ts",
+        "src/index.ts"
+       , "src/bin/tool.ts"
+    ],
     "compileOnSave": false,
     "compilerOptions": {
         "outDir": "dist/",
         "moduleResolution": "node",
         "noImplicitAny": true,
-        "target": "es5"
-        ,"sourceMap": true
-        ,"module": "commonjs"
-        ,"newLine": "LF"
-    }
-,"exclude": [
-    "node_modules"
-  ]
-
+        "target": "es6",
+        "sourceMap": false,
+        "module": "commonjs",
+        "newLine": "LF"
+    },
+    "exclude": [
+        "node_modules"
+    ]
 }

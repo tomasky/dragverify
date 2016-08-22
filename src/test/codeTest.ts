@@ -1,5 +1,4 @@
-
-import Greeter from "../index";
+import * as fst from "../index";
 import chai = require('chai');
 
 /**
@@ -27,14 +26,12 @@ describe('User Model Unit Tests:', () => {
 });
 
 describe('Greeter-test', function () {
-  var subject : Greeter;
-
+  var subject : fst.Greeter;
     beforeEach(function () {
-       subject = new Greeter("Hello");
+       subject = new fst.Greeter("Hello");
     });
-  it('should execute', function () {
+  it('greet string should equals', function () {
      var ret =  subject.greet("wooz");
-       
-       expect(ret).to.equals("Hello wooz");
+       expect(ret).to.equals("Hello:wooz");
   })
 })
