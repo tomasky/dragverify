@@ -6,6 +6,9 @@
         "typings/index.d.ts",
         "src/index.ts"
        , "src/bin/tool.ts"
+       , "src/bin/restrun.ts"
+       , "src/lib/oauth2.ts"
+       , "src/test/codeTest.ts"
     ],
     "compileOnSave": false,
     "compilerOptions": {
@@ -16,6 +19,8 @@
         "sourceMap": false,
         "module": "commonjs",
         "newLine": "LF"
+       ,"experimentalDecorators": true
+,"emitDecoratorMetadata":true
     },
     "exclude": [
         "node_modules"

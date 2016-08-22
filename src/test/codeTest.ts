@@ -1,5 +1,5 @@
 import * as fst from "../index";
-import chai = require('chai');
+import * as chai from 'chai';
 
 /**
  * Globals
@@ -26,12 +26,12 @@ describe('User Model Unit Tests:', () => {
 });
 
 describe('Greeter-test', function () {
-  var subject : fst.Greeter;
+  let subject : fst.Greeter;
     beforeEach(function () {
-       subject = new fst.Greeter("Hello");
+       subject = new fst.Greeter("wooz");
     });
   it('greet string should equals', function () {
-     var ret =  subject.greet("wooz");
+     let ret =  subject.greet();
        expect(ret).to.equals("Hello:wooz");
   })
 })
