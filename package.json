@@ -16,7 +16,7 @@
     "chai": "^3.5.0",
     "cookies": "0.6.1",
     "koa": "^2.0.0",
-    "node-oauth2-server": "^2.4.0",
+    "oauth2-server": "^2.4.1",
     "ts-router": "^0.2.6",
     "typescript": "^1.8.10",
     "typescript-require": "^0.2.9-1",
