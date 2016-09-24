@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+/// <reference path="../../typings/modules/typings-core/index.d.ts" />
 import { Emitter } from 'typings-core'
 interface Argv {
   help: boolean
@@ -21,4 +21,8 @@ interface Args extends Argv {
   _: string[]
   emitter: Emitter
 }
-console.log("some tool")
+/*
+ * 
+ */
+let s = 3
+console.log("some tool"+s)

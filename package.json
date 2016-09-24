@@ -1,23 +1,32 @@
 {
   "name": "typescriptest",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "some typescript build exp",
   "main": "dist/index.js",
   "bin": {
-    "stool": "dist/bin/tool.js"
+    "stool": "dist/bin/tool.js",
+    "restrun": "dist/bin/restrun.js"
   },
-  "directories": {
+  "typings": "typings.d.ts",
+  "typescript": {
+    "definition": "Somelib.d.ts"
   },
+  "directories": {},
   "dependencies": {
     "chai": "^3.5.0",
-    "typescript": "^1.8.10",
+    "cookies": "0.6.1",
+    "koa": "^2.0.0",
+    "oauth2-server": "^2.4.1",
+    "ts-router": "^0.2.6",
+    "typescript": "^2.0.3",
     "typescript-require": "^0.2.9-1",
-    "typings-core": "^1.4.0"
+    "typings-core": "^1.5.0"
   },
   "devDependencies": {
     "mocha": "^3.0.1"
   },
   "scripts": {
+    "start": "ts-node src/bin/restrun.ts",
     "test": "tsc && mocha dist/test"
   },
   "keywords": [

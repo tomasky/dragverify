@@ -1,10 +1,17 @@
 {
   "dependencies": {
-    "chai": "registry:npm/chai#3.5.0+20160723033700"
-,"typings-core": "npm:typings-core"
+    "chai": "registry:npm/chai#3.5.0+20160723033700",
+    "typings-core": "npm:typings-core"
   },
   "globalDependencies": {
+    "cookies": "registry:dt/cookies#0.5.1+20160316171810",
+    "express": "registry:dt/express#4.0.0+20160708185218",
+    "express-serve-static-core": "registry:dt/express-serve-static-core#4.0.0+20160923124352",
+    "koa": "registry:dt/koa#2.0.0+20160724024233",
+    "mime": "registry:dt/mime#0.0.0+20160316155526",
     "mocha": "registry:dt/mocha#2.2.5+20160720003353",
-    "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#48c1e3c1d6baefa4f1a126f188c27c4fefd36bff"
+    "node": "registry:dt/node#6.0.0+20160923124626",
+    "oauth2-server": "registry:dt/oauth2-server#0.0.0+20160317120654",
+    "serve-static": "registry:dt/serve-static#0.0.0+20160606155157"
   }
 }
