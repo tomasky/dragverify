@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+/// <reference path="../../typings/modules/typings-core/index.d.ts" />
 import { Emitter } from 'typings-core'
 interface Argv {
   help: boolean

@@ -1,4 +1,3 @@
- 
 import * as tsRouter from 'ts-router';
 import * as Koa from 'koa';
 import * as mem from '../lib/oauth2';

@@ -3,7 +3,6 @@
         "src/**/*.ts"
     ],
     "files": [
-        "typings/index.d.ts",
         "src/index.ts"
        , "src/bin/tool.ts"
        , "src/bin/restrun.ts"
