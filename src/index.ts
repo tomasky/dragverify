@@ -1,6 +1,8 @@
 import captcha from "@itriton/captcha"
-import fastify, { FastifyInstance, RouteShorthandOptions } from "fastify"
-import { Server, IncomingMessage, ServerResponse } from "http"
+
+import fastify from "fastify"
+import type { FastifyInstance } from "fastify"
+import type { Server, IncomingMessage, ServerResponse } from "http"
 
 const server: FastifyInstance<Server, IncomingMessage, ServerResponse> =
   fastify({ logger: true })
