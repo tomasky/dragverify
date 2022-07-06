@@ -1,11 +1,24 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import DragVerifyImgChip from './components/DragVerifyImgChip.vue'
+import HelloWorld from "./components/HelloWorld.vue";
+import DragVerifyImgChip from "./components/DragVerifyImgChip.vue";
+const isPassing = false;
+const reimg = function (params) {
+  console.log("refresh img");
+};
+const pass = function (params) {
+  console.log("verify passing");
+};
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+    <img
+      alt="Vue logo"
+      class="logo"
+      src="./assets/logo.svg"
+      width="125"
+      height="125"
+    />
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
@@ -13,25 +26,23 @@ import DragVerifyImgChip from './components/DragVerifyImgChip.vue'
   </header>
 
   <main>
-    <DragVerifyImgChip 
-  ref="dragVerify"
-  imgsrc="/src/assets/logo.svg"
-  sliderImg="/src/assets/logo.svg"
-  :isPassing.sync="isPassing"
-  :showRefresh="true"
-  text="请按住滑块拖动"
-  successText="验证通过"
-  handlerIcon="el-icon-d-arrow-right"
-  successIcon="el-icon-circle-check"
-  @refresh="reimg"
-  @passcallback="pass"
-  >
-</DragVerifyImgChip>
+    <DragVerifyImgChip
+      ref="dragVerify"
+      imgsrc="/src/assets/logo.svg"
+      sliderImg="/src/assets/logo.svg"
+      :isPassing.sync="isPassing"
+      :showRefresh="true"
+      text="请按住滑块拖动"
+      successText="验证通过"
+      @refresh="reimg"
+      @passcallback="pass"
+    >
+    </DragVerifyImgChip>
   </main>
 </template>
 
 <style>
-@import './assets/base.css';
+@import "./assets/base.css";
 
 #app {
   max-width: 1280px;

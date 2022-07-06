@@ -20,6 +20,7 @@
       />
       <div class="refresh" v-if="showRefresh && !isPassing">
         <i :class="refreshIcon" @click="refreshimg"></i>
+        <Refresh class="icon" @click="refreshimg" />
       </div>
       <div class="tips success" v-if="showTips && isPassing">
         {{ successTip }}
@@ -59,6 +60,8 @@
         :style="handlerStyle"
       >
         <i :class="handlerIcon"></i>
+        <DArrowRight class="icon" v-if="!isPassing" />
+        <CircleCheck class="icon" v-if="isPassing" />
       </div>
     </div>
   </div>
@@ -399,6 +402,8 @@ export default {
   right: 5px;
   top: 5px;
   cursor: pointer;
+  height: 20px;
+  width: 20px;
   font-size: 20px;
   z-index: 200;
 }
