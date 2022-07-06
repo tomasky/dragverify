@@ -1,3 +1,5 @@
 node_modules
 typings
 dist
+*-lock.yaml
+package-lock.json

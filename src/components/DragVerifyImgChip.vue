@@ -2,19 +2,22 @@
   <div class="drag-verify-container">
     <div :style="dragVerifyImgStyle">
       <img
-        ref="checkImg"
+        ref="maincanvas"
         crossOrigin="anonymous"
         :src="imgsrc"
         @load="checkimgLoaded"
         style="width: 100%"
         alt=""
       />
-      <canvas ref="maincanvas" class="main-canvas"></canvas>
-      <canvas
+      <img
         ref="movecanvas"
+        :src="sliderImg"
+        width="40"
+        height="40"
         :class="{ goFirst: isOk, goKeep: isKeep }"
         class="move-canvas"
-      ></canvas>
+        alt=""
+      />
       <div class="refresh" v-if="showRefresh && !isPassing">
         <i :class="refreshIcon" @click="refreshimg"></i>
       </div>
@@ -125,6 +128,9 @@ export default {
     imgsrc: {
       type: String,
     },
+    sliderImg: {
+      type: String,
+    },
     barWidth: {
       type: Number,
       default: 40,
@@ -221,63 +227,8 @@ export default {
     };
   },
   methods: {
-    draw: function (ctx, x, y, operation) {
-      var l = this.barWidth;
-      var r = this.barRadius;
-      const PI = Math.PI;
-      ctx.beginPath();
-      ctx.moveTo(x, y);
-      ctx.arc(x + l / 2, y - r + 2, r, 0.72 * PI, 2.26 * PI);
-      ctx.lineTo(x + l, y);
-      ctx.arc(x + l + r - 2, y + l / 2, r, 1.21 * PI, 2.78 * PI);
-      ctx.lineTo(x + l, y + l);
-      ctx.lineTo(x, y + l);
-      ctx.arc(x + r - 2, y + l / 2, r + 0.4, 2.76 * PI, 1.24 * PI, true);
-      ctx.lineTo(x, y);
-      ctx.lineWidth = 2;
-      ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
-      ctx.strokeStyle = "rgba(255, 255, 255, 0.8)";
-      ctx.stroke();
-      ctx[operation]();
-      ctx.globalCompositeOperation = "destination-over";
-    },
     checkimgLoaded: function () {
       // 生成图片缺失位置
-      var barWidth = this.barWidth;
-      var imgHeight = this.$refs.checkImg.height;
-      var imgWidth = this.$refs.checkImg.width;
-      var halfWidth = Math.floor(this.width / 2);
-      var refreshHeigth = 25;
-      var tipHeight = 20;
-      var x =
-        halfWidth +
-        Math.ceil(Math.random() * (halfWidth - barWidth - this.barRadius - 5));
-      var y =
-        refreshHeigth +
-        Math.floor(
-          Math.random() * (imgHeight - barWidth - refreshHeigth - tipHeight)
-        );
-      this.$refs.maincanvas.setAttribute("width", imgWidth);
-      this.$refs.maincanvas.setAttribute("height", imgHeight);
-      this.$refs.maincanvas.style.display = "block";
-      var canvasCtx = this.$refs.maincanvas.getContext("2d");
-      this.draw(canvasCtx, x, y, "fill");
-      this.clipBarx = x;
-
-      var moveCanvas = this.$refs.movecanvas;
-      moveCanvas.setAttribute("width", imgWidth);
-      moveCanvas.setAttribute("height", imgHeight);
-      this.$refs.movecanvas.style.display = "block";
-      const L = barWidth + this.barRadius * 2 + 3; //实际宽度
-      var moveCtx = this.$refs.movecanvas.getContext("2d");
-      moveCtx.clearRect(0, 0, imgWidth, imgHeight);
-      this.draw(moveCtx, x, y, "clip");
-      moveCtx.drawImage(this.$refs.checkImg, 0, 0, imgWidth, imgHeight);
-      var y = y - this.barRadius * 2 - 1;
-      const ImageData = moveCtx.getImageData(x, y, L, L);
-      moveCanvas.setAttribute("width", L);
-      moveCanvas.setAttribute("height", imgHeight);
-      moveCtx.putImageData(ImageData, 0, y);
     },
     dragStart: function (e) {
       if (!this.isPassing) {
