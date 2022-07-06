@@ -1,15 +1,21 @@
-import fs = require("fs");
-  interface IGreeterService {
-          greet(name: string):string
+import captcha from "@itriton/captcha"
+import fastify, { FastifyInstance, RouteShorthandOptions } from "fastify"
+import { Server, IncomingMessage, ServerResponse } from "http"
+
+const server: FastifyInstance<Server, IncomingMessage, ServerResponse> =
+  fastify({ logger: true })
+
+// Add our route handler with correct types
+server.get("/api/captcha", async (req: any, res: any) => {
+  const t = req.query
+  const ret = await captcha.create()
+  res.code(200).send({ data: { b: ret.backgroundImage, c: ret.jigsawImage } })
+})
+
+// Start your server
+server.listen({ port: 8080 }, (err: any, _: any) => {
+  if (err) {
+    console.error(err)
+    process.exit(1)
   }
-
-export class Greeter implements IGreeterService {
-    greeting: string
-    constructor(message: string) {
-        this.greeting = message
-    }
-    greet(name: string): string {
-        return this.greeting + ":" + name
-    }
-}
-
+})
