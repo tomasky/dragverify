@@ -1,9 +1,16 @@
 <script setup lang="ts">
 import HelloWorld from "./components/HelloWorld.vue";
 import DragVerifyImgChip from "./components/DragVerifyImgChip.vue";
+import axios from "axios";
 const isPassing = false;
+let imgsrc = "/src/assets/logo.svg"
+let sliderImg = "/src/assets/logo.svg"
 const reimg = function (params) {
-  console.log("refresh img");
+   console.log("refresh img");
+   const axiosData = await axios({ "http://localhost:8080/api/captcha?t=" + new Date() });
+   const images = axiosData.data;
+   imgsrc = images.b
+   sliderImg = images.c
 };
 const pass = function (params) {
   console.log("verify passing");
@@ -28,8 +35,8 @@ const pass = function (params) {
   <main>
     <DragVerifyImgChip
       ref="dragVerify"
-      imgsrc="/src/assets/logo.svg"
-      sliderImg="/src/assets/logo.svg"
+      :imgsrc="imgsrc"
+      :sliderImg="sliderImg"
       :isPassing.sync="isPassing"
       :showRefresh="true"
       text="请按住滑块拖动"
